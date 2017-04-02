@@ -1,0 +1,18 @@
+var fs = require('fs');
+
+fs.open('num.txt', 'r', function(err, fd) {
+  var buffer = new Buffer(i);
+  var count = 0;
+  while(true)
+  {
+    var num = fs.readSync(fd, buffer, 0, 1, null);
+    if(buffer.toString('hex') == '0d')
+      count++;
+      
+     if(num == 0)
+      break;
+      
+     console.log('byte read', buffer.toString());
+   }
+   console.log('count: ' + count);
+});
